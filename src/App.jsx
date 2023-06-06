@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import NavBar from "./components/Navbar";
 
 const pokemonList = [
   {
@@ -30,28 +30,18 @@ const pokemonList = [
 const App = () => {
   const [pokemonIndex, setPokemonIndex] = useState(0);
 
-  const handleClickSui = () =>
-    setPokemonIndex(
-      pokemonIndex < pokemonList.length - 1 ? pokemonIndex + 1 : pokemonIndex
-    );
-
-  const handleClickPre = () =>
-    setPokemonIndex(pokemonIndex > 0 ? pokemonIndex - 1 : pokemonIndex);
 
   const Pokemon = pokemonList[pokemonIndex];
 
   return (
-    <div>
+    <>
+    <NavBar pokemonList={pokemonList} pokemonIndex={pokemonIndex} setPokemonIndex={setPokemonIndex}  />
+    <div> 
+    
       <img src={Pokemon.imgSrc} alt={Pokemon.name} />
-      <div>
-        {pokemonIndex > 0 ? (
-          <button onClick={handleClickPre}>Précédent</button>
-        ) : undefined}
-        {pokemonIndex < pokemonList.length - 1 ? (
-          <button onClick={handleClickSui}>Suivant</button>
-        ) : undefined}
-      </div>
-    </div>
+      <h1>{Pokemon.name} </h1>
+</div>
+</>
   );
 };
 
