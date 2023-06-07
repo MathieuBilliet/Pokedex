@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
-import NavBar from "./components/Navbar";
+import NavBar from "./components/NavBar/NavBar";
+import MyTitle from "./components/MyTitle/MyTitle";
 
 const pokemonList = [
   {
@@ -30,18 +31,21 @@ const pokemonList = [
 const App = () => {
   const [pokemonIndex, setPokemonIndex] = useState(0);
 
-
   const Pokemon = pokemonList[pokemonIndex];
 
   return (
     <>
-    <NavBar pokemonList={pokemonList} pokemonIndex={pokemonIndex} setPokemonIndex={setPokemonIndex}  />
-    <div> 
-    
-      <img src={Pokemon.imgSrc} alt={Pokemon.name} />
-      <h1>{Pokemon.name} </h1>
-</div>
-</>
+      <NavBar
+        pokemonList={pokemonList}
+        pokemonIndex={pokemonIndex}
+        setPokemonIndex={setPokemonIndex}
+      />
+      <MyTitle />
+      <div className="CardContainer">
+        <img src={Pokemon.imgSrc} alt={Pokemon.name} />
+        <h1>{Pokemon.name} </h1>
+      </div>
+    </>
   );
 };
 
