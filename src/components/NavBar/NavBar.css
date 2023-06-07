@@ -25,4 +25,5 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
   padding: 1em 2em;
+  color: #fff;
 }
